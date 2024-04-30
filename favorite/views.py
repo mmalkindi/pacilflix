@@ -25,7 +25,7 @@ def show_main(request):
         'favorite_shows': favorite_shows,
     }
 
-    return render(request, "main.html", context)
+    return render(request, "favorite.html", context)
 
 def show_xml(request):
     data = favorite_shows

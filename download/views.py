@@ -39,7 +39,7 @@ def show_main(request):
         'downloaded_shows': downloaded_shows,
     }
 
-    return render(request, "main.html", context)
+    return render(request, "download.html", context)
 
 def show_xml(request):
     data = downloaded_shows
