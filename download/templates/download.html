@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html>
+    <body>
+        <h1>Daftar Unduhan</h1>
+        <hr>
+
+        <table>
+            <tr>
+                <th>Judul</th>
+                <th>Waktu Diunduh</th>
+                <th>Aksi</th>
+            </tr>
+        
+            {% for show in downloaded_shows %}
+                <tr>
+                    <td>{{show.0}}</td>
+                    <td>{{show.2}}</td>
+                    <td>
+                        <button>
+                            Hapus
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
+
+{% endblock content %}
