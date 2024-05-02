@@ -52,7 +52,7 @@ def user_register(request):
             user = authenticate(request, username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
             login(request, user)
 
-            response = HttpResponseRedirect(reverse("authentication:landing_page"))
+            response = HttpResponseRedirect(reverse("show:show_main"))
             return response
     context = {'page_title': "Register", 'form': form}
     return render(request, 'register.html', context)
