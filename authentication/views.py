@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 
+from authentication.models import Pengguna
+
 from .forms import PenggunaCreationForm
 
 # Create your views here.
@@ -40,6 +42,12 @@ def user_register(request):
     if request.method == "POST":
         if form.is_valid():
             new_user = form.save()
+
+            # buat objek pengguna juga
+            pengguna = Pengguna()
+            pengguna.user = new_user
+            pengguna.country = form.cleaned_data['country']
+            pengguna.save()
 
             user = authenticate(request, username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
             login(request, user)
