@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/subscription.css' %}" />
+{% endblock meta %}
+
+{% block content %}
+<html>
+    <head>
+        <style>
+            th, td {
+                padding-right: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Halaman Kelola Langganan</h1>
+        <hr>
+
+        <p>Paket Langganan Aktif Anda:</p>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Resolusi Layar</th>
+                <th>Dukungan Perangkat</th>
+                <th>Tanggal Mulai</th>
+                <th>Tanggal Akhir</th>
+            </tr>
+            <tr>
+                <td>{{ paket_aktif.0.0 }}</td>
+                <td>{{ paket_aktif.0.1 }}</td>
+                <td>{{ paket_aktif.0.2 }}</td>
+                <td>{{ paket_aktif.0.3 }}</td>
+                <td>{{ paket_aktif.1 }}</td>
+                <td>{{ paket_aktif.2 }}</td>
+            </tr>
+        </table>
+
+        <br>
+        <p>Pilih Paket Lain:</p>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Resolusi Layar</th>
+                <th>Dukungan Perangkat</th>
+                <th>Beli</th>
+            </tr>
+            {% for paket in semua_paket %}
+            <tr>
+                <td>{{ paket.0 }}</td>
+                <td>{{ paket.1 }}</td>
+                <td>{{ paket.2 }}</td>
+                <td>{{ paket.3 }}</td>
+                <td>
+                    <button class="btn btn-primary">
+                        Beli
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <p>Riwayat Transaksi</p>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>Tanggal Mulai</th>
+                <th>Tanggal Akhir</th>
+                <th>Metode Pembayaran</th>
+                <th>Tanggal Transaksi</th>
+                <th>Total Harga</th>
+            </tr>
+            {% for transaksi in riwayat_transaksi %}
+            <tr>
+                <td>{{ transaksi.0 }}</td>
+                <td>{{ transaksi.1 }}</td>
+                <td>{{ transaksi.2 }}</td>
+                <td>{{ transaksi.3 }}</td>
+                <td>{{ transaksi.4 }}</td>
+                <td>{{ transaksi.5 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
+
+{% endblock content %}

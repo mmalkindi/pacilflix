@@ -9,4 +9,6 @@ urlpatterns = [
     path('show/', include('show.urls')),
     path('trailer/', include('trailer.urls')),
     path('review/', include('review.urls')),
+    path('contributor/', include('contributor.urls')),
+    path('subscription/', include('subscription.urls'))
 ]
