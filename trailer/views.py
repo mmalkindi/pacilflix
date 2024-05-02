@@ -8,3 +8,6 @@ def show_main(request):
 
 def show_trailer(request):
     return render(request, "trailer.html")
+
+def show_trailer_old(request):
+    return render(request, "trailer_previous.html")
