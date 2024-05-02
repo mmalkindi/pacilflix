@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/contributor.css' %}" />
+{% endblock meta %}
+
+{% block content %}
+<html>
+    <head>
+        <style>
+            th, td {
+                padding-right: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Daftar Kontributor</h1>
+        <hr>
+
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>Tipe</th>
+                <th>Jenis Kelamin</th>
+                <th>Kewarganegaraan</th>
+            </tr>
+
+            <tr>
+
+            </tr>
+        
+            {% for contributor in contributors %}
+                <tr>
+                    <td>{{contributor.0}}</td>
+                    <td>{{contributor.1}}</td>
+                    <td>{{contributor.2}}</td>
+                    <td>{{contributor.3}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/buy.css' %}" />
+{% endblock meta %}
+
+{% block content %}
+<html>
+    <head>
+        <style>
+            th, td {
+                padding-right: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Halaman Beli</h1>
+        <hr>
+
+        <p>Informasi Paket yang Ingin Dibeli:</p>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Resolusi Layar</th>
+                <th>Dukungan Perangkat</th>
+            </tr>
+
+            <tr>
+                <td>{{ paket_dipilih.0 }}</td>
+                <td>{{ paket_dipilih.1 }}</td>
+                <td>{{ paket_dipilih.2 }}</td>
+                <td>{{ paket_dipilih.3 }}</td>
+            </tr>
+            
+        </table>
+
+        <br>
+        <p>Pilih Metode Pembayaran</p>
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Transfer Bank
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Transfer Bank</a></li>
+              <li><a class="dropdown-item" href="#">Kartu Kredit</a></li>
+              <li><a class="dropdown-item" href="#">E-Wallet</a></li>
+            </ul>
+          </div>
+
+        <br>
+        <button type="button" class="btn btn-primary">Bayar</button>
+
+    </body>
+</html>
+
+{% endblock content %}
