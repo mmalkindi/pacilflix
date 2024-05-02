@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="position-absolute top-50 start-50 translate-middle">
+    <div class="mb-3 text-center fw-light fs-3 text-wrap">Form Registrasi</div>
+    <div class="bg-body-secondary rounded border p-4 shadow-sm">
+        <form method="POST" id="register-form">
+            {% csrf_token %}
+            <div class="form-floating mb-3">
+                {{ form.username }}
+                <label for="{{ form.username.id_for_label }}">Username</label>
+                {% if form.username.errors %}
+                    {% for error in form.username.errors %}
+                        <div class="text-danger-emphasis">{{ error|escape }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-floating mb-3">
+                {{ form.password1 }}
+                <label for="{{ form.password1.id_for_label }}">Password</label>
+                {% if form.password1.errors %}
+                    {% for error in form.password1.errors %}
+                        <div class="text-danger-emphasis">{{ error|escape }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-floating mb-3">
+                {{ form.password2 }}
+                <label for="{{ form.password2.id_for_label }}">Confirm password</label>
+                {% if form.password2.errors %}
+                    {% for error in form.password2.errors %}
+                        <div class="text-danger-emphasis">{{ error|escape }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-floating mb-3">
+                {{ form.country }}
+                <label for="{{ form.country.id_for_label }}">Negara Asal</label>
+                {% if form.country.errors %}
+                    {% for error in form.country.errors %}
+                        <div class="text-danger-emphasis">{{ error|escape }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="d-grid gap-2 mx-auto mt-2 mb-3">
+                <button type="submit" form="register-form" class="login_btn btn btn-block btn-success bg-gradient">Create my account</button>
+            </div>
+        </form>
+    
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+            
+        <div class="text-center text-body-secondary text-nowrap">Already have an account? <a href="{% url 'authentication:login' %}" class="link-offset-2 link-underline link-underline-opacity-0">Sign in</a></div>
+    </div>    
+</div>
+{% endblock content %}
