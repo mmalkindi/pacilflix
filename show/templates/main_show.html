@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<a href="{% url 'show:tayangan' %}">Tayangan Page</a><br>
+<a href="{% url 'show:film' %}">Film Page</a><br>
+<a href="{% url 'show:series' %}">Series Page</a><br>
+<a href="{% url 'show:episode' %}">Episode Page</a><br>
+{% endblock content %}

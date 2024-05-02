@@ -1,31 +1,36 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<html>
-    <body>
-        <h1>Daftar Unduhan</h1>
-        <hr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Unduhan</title>
+ 
+</head>
+<body>
+    <h1>Daftar Unduhan</h1>
+    <hr>
 
-        <table>
+    <table>
+        <tr>
+            <th>Judul</th>
+            <th>Waktu Diunduh</th>
+            <th>Aksi</th>
+        </tr>
+    
+        {% for show in downloaded_shows %}
             <tr>
-                <th>Judul</th>
-                <th>Waktu Diunduh</th>
-                <th>Aksi</th>
+                <td>{{ show.0 }}</td>
+                <td>{{ show.2 }}</td>
+                <td>
+                    <button onclick="showModal()" class="btn btn-outline-danger">
+                        Hapus
+                    </button>
+                </td>
             </tr>
-        
-            {% for show in downloaded_shows %}
-                <tr>
-                    <td>{{show.0}}</td>
-                    <td>{{show.2}}</td>
-                    <td>
-                        <button>
-                            Hapus
-                        </button>
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
-    </body>
+        {% endfor %}
+    </table>
+</body>
 </html>
-
 {% endblock content %}
